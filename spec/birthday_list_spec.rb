@@ -2,7 +2,7 @@ require 'birthday_list'
 
 describe BirthdayList do
   
-  let(:todays_date) { '2019-08-26' }
+  let(:todays_date) { '26/08/2019' }
 
   it 'responds to store_birthday' do
     expect(subject).to respond_to(:store_birthday).with(4).arguments
@@ -13,8 +13,9 @@ describe BirthdayList do
   end
 
   it 'prints stored birthdays when print_birthday is called' do
-    allow(subject).to receive(:store_birthday).with("John", 1947, 8, 26)
-    expect{ subject.print_birthdays }.to output('John - 26-08-1974').to_stdout
+    allow(subject).to receive(:store_birthday).with("John", "26","08","1947")
+    expect(subject).to receive(:print_birthdays).and_return('John - 26/08/1974')
+    subject.print_birthdays
   end
 
   it 'responds to birthday_check' do
@@ -22,8 +23,9 @@ describe BirthdayList do
   end
 
   it 'prints that it is someones birthday today if today == their birthday' do
-    allow(subject).to receive(:store_birthday).with("John", 1947, 8, 26)
-    expect(subject.birthday_check).to output("It's John's birthday today! They are 72 years old!")
+    allow(subject).to receive(:store_birthday).with("John", "26","08","1947")
+    expect(subject).to receive(:birthday_check).and_return("John has a birthday today! They are 72 years old!")
+    subject.birthday_check
   end
 
 end
