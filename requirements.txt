@@ -1,0 +1,9 @@
+# requirements:
+
+class BirthdayList
+method store_birthday - stores birthdays in array
+array birthdays
+method print_birthdays - prints name + birthday
+method birthday_check - checks if today = birthday for each entry, then prints a message if it is
+
+
