@@ -50,7 +50,7 @@ class BirthdayList
   def birthday_check
     @birthdays.each { |entry| 
     if entry[2] + "/" + entry[1] == @todays_date[0..4]
-      puts "#{entry[0]} has a birthday today! They are #{@todays_date[6..-1].to_i - entry[3].to_i} years old!"
+      p "#{entry[0]} has a birthday today! They are #{@todays_date[6..-1].to_i - entry[3].to_i} years old!"
     end
     }
   end
